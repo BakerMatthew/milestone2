@@ -1,2 +1,12 @@
-<h1><%= title %></h1>
-<p>Welcome to <%= title %></p>
+<% include ../head %>
+
+<ul>
+<% for(var i=0; i<entries.length; i++) { %>
+ <li>
+   <a href='/entries/<%= i %>' ><%= entries[i].info %></a>
+   <a href='/entries/<%= i %>/edit'>Edit Entry</a>
+   <a href='/entries/<%= i %>/delete'>Delete Entry</a>
+ </li>
+<% } %>
+</ul>
+<% include ../footer %>
