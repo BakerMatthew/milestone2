@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 
 var entries = [
-  {info:"how to pass class", body: "come to class. do your homework", created_at: "some date"},
-  {info:"how to fail class", body: "play video games all day", created_at: "some date"}
+  {info:"My First Entry", body: "Hello World! This is my first entry!", created_at: "some date"},
+  {info:"Learning JS", body: "Sometimes linking pages together is difficult...", created_at: "some date"}
 ];
 
 /* READ all: GET til listing. */
@@ -38,6 +38,26 @@ router.post('/:id', function(req, res, next) {
   res.render('til/index',
   {
     title: 'Update an entry',
+    entries: entries
+  });
+});
+
+/* UPDATE entry form: GET /til/1/entry */
+router.get('/:id/entry', function(req, res, next) {
+  res.render('til/entry',
+  {
+    title: 'View an entry',
+    id: req.params.id,
+    entry: entries[req.params.id]
+  });
+});
+
+/* UPDATE entry: POST /til/1 */
+router.post('/:id', function(req, res, next) {
+  entries[req.params.id] = req.body;
+  res.render('til/index',
+  {
+    title: 'View an entry',
     entries: entries
   });
 });
