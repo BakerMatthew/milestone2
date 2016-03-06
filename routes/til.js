@@ -13,13 +13,6 @@ router.get('/', function(req, res, next) {
   res.render('til/index', { title: 'Today I Learned', entries: entries });
 });
 
-
-/* CREATE entry: /til/# */
-//Shows a single entry
-router.get('/:id', function(req, res, next) {
-  res.render('til/entry', { title: 'View An Entry', entry: entries[req.params.id]});
-});
-
 /* CREATE new entry form: GET /til/new */
 //Sets up new entry page
 router.get('/new', function(req, res, next) {
@@ -64,8 +57,9 @@ router.get('/:id/delete', function(req, res, next) {
 });
 
 /* GET til listing. */
+//Show single entry page
 router.get('/:id', function(req, res, next) {
-  res.render('til/index', { title: 'An entry' , entry: entries[req.params.id]});
+  res.render('til/entry', { title: 'An entry' , entry: entries[req.params.id]});
 });
 
 module.exports = router;
