@@ -4,8 +4,14 @@
 <% for(var i=0; i<entries.length; i++) { %>
  <li>
    <a href='/til/<%= i %>' ><%= entries[i].info %></a>
-   <a href='/til/<%= i %>/edit'>Edit Entry</a>
-   <a href='/til/<%= i %>/delete'>Delete Entry</a>
+   <ul>
+     <li>
+       <a href='/til/<%= i %>/edit'>Edit Entry</a>
+     </li>
+     <li>
+       <a href='/til/<%= i %>/delete'>Delete Entry</a>
+     </li>
+   </ul>
  </li>
 <% } %>
 </ul>
