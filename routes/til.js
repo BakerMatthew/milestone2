@@ -6,25 +6,25 @@ var entries = [
   {info:"how to fail class", body: "play video games all day", created_at: "some date"}
 ];
 
-/* READ all: GET entries listing. */
+/* READ all: GET til listing. */
 router.get('/', function(req, res, next) {
-  res.render('entries/index', { title: 'Today I Learned', entries: entries });
+  res.render('til/index', { title: 'Today I Learned', entries: entries });
 });
 
-/* CREATE entry form: GET /entries/new */
+/* CREATE entry form: GET /til/new */
 router.get('/new', function(req, res, next) {
-  res.render('entries/new', {title: "Create A New entry"});
+  res.render('til/new', {title: "Create A New entry"});
 });
 
-/*CREATE entry: POST /entries/ */
+/*CREATE entry: POST /til/ */
 router.post('/', function(req, res, next) {
   entries.push(req.body);
-  res.render('entries/index', { title: 'Today I Learned', entries: entries });
+  res.render('til/index', { title: 'Today I Learned', entries: entries });
 });
 
-/* UPDATE entry form: GET /entries/1/edit */
+/* UPDATE entry form: GET /til/1/edit */
 router.get('/:id/edit', function(req, res, next) {
-  res.render('entries/update',
+  res.render('til/update',
   {
     title: 'Update an entry',
     id: req.params.id,
@@ -32,21 +32,21 @@ router.get('/:id/edit', function(req, res, next) {
   });
 });
 
-/* UPDATE entry: POST /entries/1 */
+/* UPDATE entry: POST /til/1 */
 router.post('/:id', function(req, res, next) {
   entries[req.params.id] = req.body;
-  res.render('entries/index',
+  res.render('til/index',
   {
     title: 'Update an entry',
     entries: entries
   });
 });
 
-/* DELETE entry: GET /entries/1/delete  */
+/* DELETE entry: GET /til/1/delete  */
 router.get('/:id/delete', function(req, res, next) {
   var id = req.params.id
   entries = entries.slice(0,id).concat(entries.slice(id+1, entries.length));
-  res.render('entries/index', { title: 'Today I Learned', entries: entries });
+  res.render('til/index', { title: 'Today I Learned', entries: entries });
 });
 
 /* GET til listing. */
