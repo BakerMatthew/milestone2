@@ -7,6 +7,7 @@ var entries = [];
 /* READ all: GET til listing. */
 //Sets up initial page
 router.get('/', function(req, res, next) {
+  var name = req.cookies.username || 'anonymous';
   req.db.driver.execQuery(
     "SELECT * FROM entries;",
     function(err, data) {
@@ -14,7 +15,7 @@ router.get('/', function(req, res, next) {
       {
         console.log(err);
       }
-      res.render('til/index', { title: 'Today I Learned', entries: data });
+      res.render('til/index', { title: 'Today I Learned', entries: data, name: name });
     }
   );
 });
