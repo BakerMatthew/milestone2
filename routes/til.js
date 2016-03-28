@@ -31,7 +31,7 @@ router.post('/', function(req, res, next) {
       {
         console.log(err);
       }
-      res.redirect(303, '/til/index');
+      res.redirect(303, '/til/');
     }
   );
 });
