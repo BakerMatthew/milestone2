@@ -26,6 +26,7 @@ router.post('/login', function(req, res, next) {
       sha1sum.update(req.body.password);
       var hashed_input = sha1sum.digest('hex');
 
+      
       if(hashed_input === data[0].password)
       {
         res.cookie('username', data[0].name);

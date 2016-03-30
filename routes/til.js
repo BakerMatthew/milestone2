@@ -68,14 +68,14 @@ router.post('/:id', function(req, res, next) {
   var id=parseInt(req.params.id);
   
   req.db.driver.execQuery(
-    "UPDATE entries SET info=?, body=? WHERE id=?;",
+    "UPDATE entries SET info=? ,body=? WHERE id=?;",
     [req.body.info, req.body.body, parseInt(req.params.id)],
     function(err, data) {
       if(err)
       {
         console.log(err);
       }
-      res.redirect(303, '/til/' + id),
+      res.redirect(303, '/til/' + id);
     }
   );
 });
