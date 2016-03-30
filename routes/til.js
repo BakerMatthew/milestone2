@@ -47,7 +47,7 @@ router.get('/new', function(req, res, next) {
 router.get('/:id/edit', function(req, res, next) {
   req.db.driver.execQuery(
     'SELECT * FROM entries_til WHERE id=?;',
-    [paseIt(eq.params.id)],
+    [parseInt(req.params.id)],
     function(err, data) {
       if(err)
       {
