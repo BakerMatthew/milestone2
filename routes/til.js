@@ -9,7 +9,7 @@ var entries = [];
 router.get('/', function(req, res, next) {
   var name = req.cookies.username || 'anonymous';
   req.db.driver.execQuery(
-    "SELECT * FROM entries;",
+    "SELECT * FROM entries_til;",
     function(err, data) {
       if(err)
       {
@@ -24,7 +24,7 @@ router.get('/', function(req, res, next) {
 //Shows the new entry page
 router.post('/', function(req, res, next) {
   req.db.driver.execQuery(
-    "INSERT INTO entries (info,body) VALUES (?,?);",
+    "INSERT INTO entries_til (info,body) VALUES (?,?);",
     [req.body.info, req.body.body],
     function(err, data){
       if(err)
@@ -46,7 +46,7 @@ router.get('/new', function(req, res, next) {
 //Sets up edit page
 router.get('/:id/edit', function(req, res, next) {
   req.db.driver.execQuery(
-    'SELECT * FROM entries WHERE id=?;',
+    'SELECT * FROM entries_til WHERE id=?;',
     [paseIt(eq.params.id)],
     function(err, data) {
       if(err)
@@ -68,7 +68,7 @@ router.post('/:id', function(req, res, next) {
   var id=parseInt(req.params.id);
   
   req.db.driver.execQuery(
-    "UPDATE entries SET info=? ,body=? WHERE id=?;",
+    "UPDATE entries_til SET info=? ,body=? WHERE id=?;",
     [req.body.info, req.body.body, parseInt(req.params.id)],
     function(err, data) {
       if(err)
