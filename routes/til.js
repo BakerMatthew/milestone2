@@ -84,7 +84,7 @@ router.post('/:id', function(req, res, next) {
 //Deletes an entry
 router.get('/:id/delete', function(req, res, next) {
   req.db.driver.execQuery(
-    'DELETE FROM entries WHERE id=?;',
+    'DELETE FROM entries_til WHERE id=?;',
     [parseInt(req.params.id)],
     function(err, data) {
       if(err)
@@ -100,7 +100,7 @@ router.get('/:id/delete', function(req, res, next) {
 //Show single entry page
 router.get('/:id', function(req, res, next) {
   req.db.driver.execQuery(
-    'SELECT * FROM entries WHERE id=?;',
+    'SELECT * FROM entries_til WHERE id=?;',
     [parseInt(req.params.id)],
     function(err, data) {
       if(err)
