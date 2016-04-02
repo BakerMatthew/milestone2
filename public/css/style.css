@@ -1,1 +1,15 @@
+body {
+    margin: 20px;
+    padding: 0;
+    background: #f6f6f6;
+    font-family: 'Comfortaa', 'Century Gothic', Arial;
+    font-size: 200%;
+    line-height: 1.6em;
+    letter-spacing: .5px;
+    color: #404040;
+    font-weight: normal;
+}
 
+nav {
+  color: cyan;
+}
