@@ -20,6 +20,12 @@ router.get('/', function(req, res, next) {
   );
 });
 
+/* CREATE new entry form: GET /til/new */
+//Sets up new entry page
+router.get('/new', function(req, res, next) {
+  res.render('til/new', {title: "Create A New entry"});
+});
+
 /*CREATE new entry: POST /til/ */
 //Shows the new entry page
 router.post('/', function(req, res, next) {
@@ -34,12 +40,6 @@ router.post('/', function(req, res, next) {
       res.redirect(303, '/til/');
     }
   );
-});
-
-/* CREATE new entry form: GET /til/new */
-//Sets up new entry page
-router.get('/new', function(req, res, next) {
-  res.render('til/new', {title: "Create A New entry"});
 });
 
 /* UPDATE edit entry form: GET /til/1/edit */

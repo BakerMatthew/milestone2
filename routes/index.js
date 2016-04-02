@@ -21,7 +21,7 @@ router.post('/login', function(req, res, next) {
       if(err)
       {
         console.log(err);
-      }
+      } 
 
       sha1sum.update(req.body.password);
       var hashed_input = sha1sum.digest('hex');
